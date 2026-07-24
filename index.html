@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>Personal OS</title>
+<meta name="theme-color" content="#05080d" />
+<meta name="description" content="A private, offline console for your tasks, thoughts, plans, dreams and projects." />
+
+<!-- PWA install support -->
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Personal OS" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="boot-screen">
+    <div class="boot-label">INITIALIZING</div>
+    <div class="boot-ring-wrap">
+      <svg width="220" height="220" class="boot-ring-outer" viewBox="0 0 220 220">
+        <circle cx="110" cy="110" r="98" fill="none" stroke="rgba(79,216,255,0.15)" stroke-width="1" stroke-dasharray="1 8" />
+      </svg>
+      <svg width="180" height="180" class="boot-ring-inner" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="72" fill="none" stroke="rgba(255,176,32,0.2)" stroke-width="1" stroke-dasharray="6 4" />
+      </svg>
+      <div class="boot-pct" id="boot-pct">0%</div>
+    </div>
+    <div class="boot-bar"><div class="boot-bar-fill" id="boot-bar-fill"></div></div>
+    <div class="boot-sub">LOADING PERSONAL OPERATING SYSTEM</div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div class="hud-grid"></div>
+    <div class="vignette"></div>
+
+    <div class="console">
+      <!-- TOP BAR -->
+      <div class="bracketed">
+        <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br br-c"></span>
+        <div class="topbar">
+          <div class="topbar-left">
+            <span class="pulse-dot">●</span>
+            <span class="topbar-title">PERSONAL&nbsp;OS</span>
+            <span class="topbar-sub">// MARK VII CONSOLE</span>
+          </div>
+          <div class="topbar-clock" id="clock">--:--:--</div>
+        </div>
+      </div>
+
+      <div class="main-grid">
+        <!-- NAV RAIL -->
+        <div class="bracketed nav-rail-wrap">
+          <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br br-c"></span>
+          <div class="nav-rail">
+            <div class="rail-label">MODULES</div>
+            <div id="nav-buttons"></div>
+            <div class="ring-slot" id="ring-slot"></div>
+          </div>
+        </div>
+
+        <!-- MOBILE NAV -->
+        <div class="mobile-nav" id="mobile-nav"></div>
+
+        <!-- MAIN PANEL -->
+        <div class="bracketed panel-wrap gold">
+          <span class="br tl gold"></span><span class="br tr gold"></span><span class="br bl gold"></span><span class="br br-c gold"></span>
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-header-left">
+                <span id="panel-icon" class="panel-icon"></span>
+                <span id="panel-title" class="panel-title"></span>
+              </div>
+              <span id="panel-meta" class="panel-meta"></span>
+            </div>
+
+            <div class="input-row">
+              <input id="entry-input" type="text" placeholder="" autocomplete="off" />
+              <button id="log-btn">
+                <span class="plus">+</span><span class="log-text">LOG</span>
+              </button>
+            </div>
+
+            <div class="entry-list" id="entry-list"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT INFO RAIL -->
+        <div class="bracketed info-rail-wrap">
+          <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br br-c"></span>
+          <div class="info-rail">
+            <div class="rail-label">OVERVIEW</div>
+            <div id="overview-bars"></div>
+            <div class="footnote">All entries stored only on this device. Nothing leaves your phone.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
